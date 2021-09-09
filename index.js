@@ -78,7 +78,12 @@ function checkIfAnyMovieHasRating(movies, rating = "G") {
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+  if (movies.length === 0) {
+    throw "no movies";
+  }
+  return movies.find((movie) => movie.imdbID === id);
+}
 
 /**
  * filterByGenre()
@@ -102,7 +107,14 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  if (movies.length === 0) {
+    throw "no movies";
+  }
+  return movies.filter((movie) => {
+    return movie.genre === genre;
+  });
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -128,7 +140,12 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  if (movies.length === 0) {
+    throw "no movies";
+  }
+  return movies.filter((movie) => Number(movie.released.split(" ")[2]) <= year);
+}
 
 /**
  * getRottenTomatoesScoreByMovie()
